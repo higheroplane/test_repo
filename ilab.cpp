@@ -42,12 +42,15 @@ int map (void * array, int num, int size, void (*f) (void *, void*))
 
     void * new_elem = calloc (1, size);
 
+    assert (new_elem);
+
     for (int i = 0; i < num; i ++)
     {
         void * current_elem = (char*) array + i * size;
         f (current_elem, new_elem);
         if (!memcpy (current_elem, new_elem, size)) return 1;
     }
+
     return 0;
 }
 
