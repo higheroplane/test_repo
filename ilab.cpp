@@ -38,6 +38,7 @@ int map (void * array, int num, int size, void (*f) (void *, void*))
 {
     assert (array);
     assert (f);
+    assert (array != f);
 
     void * new_elem = calloc (1, size);
 
