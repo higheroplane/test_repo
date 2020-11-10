@@ -4,6 +4,7 @@ This is a demo repository for lessons.
 
 ## Build and Run
 
-  '''g++ -c ilab ilab.cpp
+  ```
+      g++ -c ilab ilab.cpp
      ./ilab
   ```
