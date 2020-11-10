@@ -48,6 +48,9 @@ int map (void * array, int num, int size, void (*f) (void *, void*))
         f (current_elem, new_elem);
         if (!memcpy (current_elem, new_elem, size)) return 1;
     }
+
+    free (new_elem);
+
     return 0;
 }
 
