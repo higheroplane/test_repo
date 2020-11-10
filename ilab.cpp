@@ -34,16 +34,20 @@ void f_plus_one (void* in, void* out)
     *((int*) out) = *((int*) in) + 2;
 }
 
-void map (void * array, int num, int size, void (*f) (void *, void*))
+int map (void * array, int num, int size, void (*f) (void *, void*))
 {
+    assert (array);
+    assert (f);
+
     void * new_elem = calloc (1, size);
 
     for (int i = 0; i < num; i ++)
     {
         void * current_elem = (char*) array + i * size;
         f (current_elem, new_elem);
-        memcpy (current_elem, new_elem, size);
+        if (!memcpy (current_elem, new_elem, size)) return 1;
     }
+    return 0;
 }
 
 // char -> wchar_t
